@@ -85,6 +85,12 @@ group :development, :test do
   gem 'database_cleaner', github: 'bmabey/database_cleaner'
   gem 'shoulda-matchers'
 
+  # deploy
+  gem 'capistrano', '~> 2.15.5', require: false
+  gem 'rvm-capistrano', require: false
+  gem "capistrano-resque", "~> 0.1.0", require: false
+  gem 'net-ssh', '2.7.0'
+
 end
 
 
