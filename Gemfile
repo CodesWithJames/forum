@@ -1,10 +1,10 @@
 source 'https://rubygems.org'
 
-ruby '2.2.3'
-gem 'rails', '4.2.3'
+ruby '2.2.2'
+gem 'rails', '4.2.2'
 
 gem 'mongoid'
-gem "mongo_session_store-rails4"
+# gem "mongo_session_store-rails4"
 
 gem 'bcrypt'
 gem 'jbuilder', '~> 2.0'
