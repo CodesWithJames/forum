@@ -2,6 +2,8 @@
 
 - Ruby version: 2.2.2
 
+- Server: AWS EC2 - Micro T2
+
 - Configuration: Unicorn with Nginx
 
 - Database: MongoDBb on Mongolab
