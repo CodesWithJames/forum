@@ -2,6 +2,11 @@ class UsersController < ApplicationController
   skip_before_action :loged_in,  only: [:login, :logout, :authenticate, :new, :create]
 
   def login
+    begin
+    rescue => e
+      Rails.logger.info e.message
+      Rails.logger.info e.backtrace.join("\r\n")
+    end
   end
 
   def logout
