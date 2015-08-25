@@ -1,22 +1,23 @@
 == README
 
-- Ruby version
-2.2.2
+- Ruby version: 2.2.2
 
-- Configuration
-Unicorn with Nginx
+- Configuration: Unicorn with Nginx
 
-- Database creation
-MongoDBb on Mongolab
+- Database: MongoDBb on Mongolab
 
 - How to run the test suite
-bundle install
-bundle exec rspec
-
+  ``` shell
+  $ bundle install
+  $ bundle exec rspec
+  ```
 - Deployment instructions
-cap deploy
+  ``` shell
+  $ cap deploy
+  ```
 
 - Blacklist 
 Itens que estão sendo colocados como proibidos na hora de criar e comentar sobre um tópico
-
+``` ruby
 "porra" "caralho" "buceta"  "foda" "vsf" "foda-se" "fdp" "filho da puta" "pqp" "puta" "cuzã"o "viado" "veado" "bixa" "viadinho"
+````
