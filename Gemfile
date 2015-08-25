@@ -7,6 +7,7 @@ gem 'bcrypt'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'awesome_print'
+gem 'figaro'
 # gem 'mini_magick'
 gem 'exceptions-resource', github: 'xdougx/exceptions-resource', require: 'exceptions'
 gem 'will_paginate'
