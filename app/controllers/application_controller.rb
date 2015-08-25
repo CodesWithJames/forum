@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   # protect_from_forgery with: :exception
   layout 'application'
   helper_method :current_user
-  before_action :loged_in, except: [:login]
+  before_action :start_session, :loged_in, except: [:login]
 
   rescue_from Exception do |exception|
     Rails.logger.info(exception.message)
