@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   before_action :loged_in, except: [:login]
 
   def loged_in
+    logger.info session.inspect
     if not session.key?("user")
       redirect_to(login_url(login: false)) 
     end

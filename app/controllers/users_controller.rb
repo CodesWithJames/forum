@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
   def logout
     reset_session
-    redirect_to login_path
+    redirect_to login_url
   end
 
   def authenticate
