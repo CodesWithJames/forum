@@ -23,6 +23,5 @@ module Forum
     config.encoding = "utf-8"
     config.assets.enabled = true
     config.serve_static_files = true
-    config.assets.precompile += %w( *.js *.css )
   end
 end

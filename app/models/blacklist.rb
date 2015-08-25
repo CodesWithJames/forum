@@ -1,5 +1,5 @@
 class Blacklist
-  LIST = %w(porra caralho buceta foda foda-se fdp filho da puta pqp puta cuzão viado veado bixa viadinho)
+  LIST = %w(porra caralho buceta foda vsf foda-se fdp filho da puta pqp puta cuzão viado veado bixa viadinho)
 
   def self.filter string
     LIST.each do |word|

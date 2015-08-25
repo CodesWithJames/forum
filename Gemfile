@@ -5,7 +5,7 @@ gem 'rails', '4.2.3'
 gem 'mongoid'
 gem "mongo_session_store-rails4"
 
-gem 'bcrypt-ruby'
+gem 'bcrypt'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'awesome_print'
@@ -84,14 +84,6 @@ group :development, :test do
   gem 'database_cleaner', github: 'bmabey/database_cleaner'
   gem 'shoulda-matchers'
 
-  ##########################################
-  ##### DEPRECATED | ATUALIZAR URGENTE #####
-  ##########################################
-  # deploy
-  gem 'capistrano', '~> 2.15.5', require: false
-  gem 'rvm-capistrano'
-  gem 'capistrano-resque', '~> 0.1.0', require: false
-  gem 'net-ssh', '2.7.0'
 end
 
 
