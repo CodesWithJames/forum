@@ -19,4 +19,7 @@ class Comment
 
   # validations
   validates :body, :user_id, :topic_id, presence: true
+  before_save do
+    self.body = Blacklist.filter(self.body)
+  end
 end

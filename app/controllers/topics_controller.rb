@@ -17,7 +17,7 @@ class TopicsController < ApplicationController
       redirect_to show_topic_path(@topic)
     rescue => exception
       @error = exception.error
-      render action: :new
+      render action: :view
     end
   end
 
@@ -29,6 +29,7 @@ class TopicsController < ApplicationController
     rescue => exception
       @error = exception.error
       @topic = Topic.find(comment_params[:topic_id])
+      @comments = @topic.comments.where(parent_id: nil).paginate(page: params[:page])
       render :view
     end
   end

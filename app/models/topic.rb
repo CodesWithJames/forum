@@ -16,6 +16,10 @@ class Topic
 
   # validations
   validates :subject, :body, :user_id, presence: true
+  before_save do
+    self.subject = Blacklist.filter(self.subject)
+    self.body = Blacklist.filter(self.body)
+  end
 
 
 end
