@@ -48,6 +48,7 @@ namespace :deploy do
   task :symlink_config, roles: :app do
     run "ln -nfs #{shared_path}/config/mongoid.yml #{release_path}/config/mongoid.yml"
     run "ln -nfs #{shared_path}/config/secrets.yml #{release_path}/config/secrets.yml"
+    run "ln -nfs #{shared_path}/config/application.yml #{release_path}/config/application.yml"
   end
   
   after "deploy:finalize_update", "deploy:symlink_config"

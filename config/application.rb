@@ -23,5 +23,7 @@ module Forum
     config.encoding = "utf-8"
     config.assets.enabled = true
     config.serve_static_files = true
+
+   config.assets.precompile += %w(topics/view.js.coffee) 
   end
 end
