@@ -15,8 +15,8 @@ class UsersController < ApplicationController
       session["user"] = @user.id.to_s
       redirect_to root_path
     rescue => exception
-      @error exception.error
-      render :login
+      @error = exception.error
+      render action: :login
     end
   end
 
