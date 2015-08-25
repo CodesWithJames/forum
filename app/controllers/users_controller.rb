@@ -10,9 +10,14 @@ class UsersController < ApplicationController
   end
 
   def authenticate
-    @user = User.authenticate(login_params)
-    session["user"] = @user.id.to_s
-    redirect_to root_path
+    begin
+      @user = User.authenticate(login_params)
+      session["user"] = @user.id.to_s
+      redirect_to root_path
+    rescue => exception
+      @error exception.error
+      render :login
+    end
   end
 
   def index
