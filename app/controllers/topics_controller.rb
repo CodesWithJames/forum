@@ -14,7 +14,7 @@ class TopicsController < ApplicationController
   def create
     begin
       @topic = Topic.build(topic_params)
-      redirect_to show_topic_path(@topic)
+      redirect_to show_topic_url(@topic)
     rescue => exception
       @error = exception.error
       render action: :view
@@ -25,7 +25,7 @@ class TopicsController < ApplicationController
     begin
       @comment = Comment.build(comment_params)
       @topic = @comment.topic
-      redirect_to show_topic_path(@topic, page: params[:page])
+      redirect_to show_topic_url(@topic, page: params[:page])
     rescue => exception
       @error = exception.error
       @topic = Topic.find(comment_params[:topic_id])

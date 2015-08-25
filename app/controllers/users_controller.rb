@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   def authenticate
     @user = User.authenticate(login_params)
     session["user"] = @user.id.to_s
-    redirect_to "/"
+    redirect_to root_url
   end
 
   def index
@@ -22,7 +22,7 @@ class UsersController < ApplicationController
     begin
       @user = User.build(users_params)
       session["user"] = @user.id.to_s
-      redirect_to "/"
+      redirect_to root_url
     rescue => exception
       @error = exception.error
       render :new

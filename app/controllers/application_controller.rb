@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 
   def loged_in
     if not session.key?("user")
-      redirect_to(login_path(login: false)) 
+      redirect_to(login_url(login: false)) 
     end
     true
   end

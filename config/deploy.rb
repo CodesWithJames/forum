@@ -2,7 +2,7 @@ require "bundler/capistrano"
 require "rvm/capistrano"
 
 set :application, "forum"
-server "104.167.113.131", :web, :app, :db, primary: true
+server "52.21.22.32", :web, :app, :db, primary: true
 set :port, 22
 set :user, "ubuntu"
 set :rails_env, 'production'
@@ -33,14 +33,14 @@ namespace :deploy do
 
   task :setup_config, roles: :app do
     run "mkdir -p #{shared_path}/config"
-    put File.read("config/mondoid.yml"), "#{shared_path}/config/mongoid.yml"
+    # put File.read("config/mondoid.yml"), "#{shared_path}/config/mongoid.yml"
     puts "Now edit the config files in #{shared_path}."
   end
 
   task :build_configs, roles: :app do
     sudo "chmod a+x /home/#{user}/apps/#{application}/current/config/unicorn_init.sh"
-    sudo "ln -nfs #{current_path}/config/nginx.conf /etc/nginx/sites-enabled/#{application}"
-    sudo "ln -nfs #{current_path}/config/unicorn_init.sh /etc/init.d/unicorn_#{application}"
+    sudo "ln -nfs #{current_path}/config/forum.conf /etc/nginx/sites-enabled/#{application}"
+    sudo "ln -nfs #{current_path}/config/forum_init.sh /etc/init.d/unicorn_#{application}"
   end
   
   after "deploy:setup", "deploy:setup_config"
