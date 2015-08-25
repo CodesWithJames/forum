@@ -11,6 +11,10 @@ class ApplicationController < ActionController::Base
   end
 
   def loged_in
+    Rails.logger.info session
+    ap session
+    puts session
+    p session
     if not session.key?(:user)
       redirect_to(login_path(login: false)) 
     end
