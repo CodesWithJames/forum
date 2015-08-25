@@ -10,20 +10,19 @@ class ApplicationController < ActionController::Base
     Rails.logger.info(exception.error)
   end
 
+  def start_session
+    session["init"] = true
+  end
   def loged_in
-    Rails.logger.info session
-    ap session
-    puts session
-    p session
-    if not session.key?(:user)
+    if not session.key?("user")
       redirect_to(login_path(login: false)) 
     end
     true
   end
 
   def current_user
-    return if session[:user].blank?
-    User.find(session[:user])
+    return if session["user"].blank?
+    User.find(session["user"])
   end
 
 end

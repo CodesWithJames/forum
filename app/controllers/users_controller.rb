@@ -11,7 +11,7 @@ class UsersController < ApplicationController
 
   def authenticate
     @user = User.authenticate(login_params)
-    session[:user] = @user.id.to_s
+    session["user"] = @user.id.to_s
     redirect_to "/"
   end
 
@@ -21,7 +21,7 @@ class UsersController < ApplicationController
   def create
     begin
       @user = User.build(users_params)
-      session[:user] = @user.id.to_s
+      session["user"] = @user.id.to_s
       redirect_to "/"
     rescue => exception
       @error = exception.error
