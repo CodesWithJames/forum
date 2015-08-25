@@ -6,23 +6,21 @@ application up and running.
 Things you may want to cover:
 
 * Ruby version
-
-* System dependencies
+2.2.2
 
 * Configuration
+Unicorn with Nginx
 
 * Database creation
+Mongolab on Mongolab
 
-* Database initialization
 
 * How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
+bundle install
+rspec
 
 * Deployment instructions
+cap deploy
 
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+* Blacklist
+porra caralho buceta foda vsf foda-se fdp filho da puta pqp puta cuzão viado veado bixa viadinho
