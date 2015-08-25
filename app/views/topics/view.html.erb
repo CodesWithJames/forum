@@ -1,0 +1,59 @@
+<section id="view_topic"> 
+  <h3><%= @topic.subject %> <br> <small> <%= @topic.user.name %> em <%= l(@topic.created_at, format: :comment) %></small></h3>
+  <p><%= @topic.body %></p>
+
+  <hr>
+  
+  <% if @error %>
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="alert alert-warning alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <i class="fa fa-exclamation-triangle"></i>  <span><%= @error[:error][:full_message] %></span>
+      </div>
+    </div>
+  </div>
+  <% end %>
+
+  <%= form_tag "/topic/comment", method: :post  do %>
+    <div class="form-group">
+      <textarea class="form-control" placeholder="Comentário..." name="comment[body]"></textarea>
+      <input type="hidden" name="comment[user_id]" value="<%= current_user.id.to_s%>" >
+      <input type="hidden" name="comment[topic_id]" value="<%= @topic.id.to_s%>" >
+    </div>
+
+    <div class="center">
+      <button class="btn btn-primary">Comentar</button>
+    </div>
+  <% end %>
+
+
+  <h4>Comentários</h4>
+  <% if @topic.comments.size < 1 %>
+    <p>Não há comentários, seja o primeiro a comentar!</p>
+  <% else %>
+    <div class="list-group"><%= list_comments(@comments) %></div>
+    <div>
+      <%= will_paginate @comments %>
+    </div>
+  <% end %>
+</section>
+
+<div id="template" style="display:none;">
+  <%= form_tag "/topic/comment?page=#{params[:page] || 1}", method: :post  do %>
+    <div class="form-group">
+      <textarea class="form-control" placeholder="Comentário..." name="comment[body]"></textarea>
+      <input type="hidden" name="comment[user_id]" value="<%= current_user.id.to_s%>" >
+      <input type="hidden" name="comment[topic_id]" value="<%= @topic.id.to_s%>" >
+      <input type="hidden" name="comment[parent_id]" value="" class="comment_parent">
+    </div>
+    <div>
+      <input type="submit" class="btn btn-primary btn-xs" value="Comentar">
+      <input type="button" class="btn btn-danger btn-xs cancel" value="Cancelar">
+    </div>
+  <% end %>
+</div>
+
+<%= content_for :javascript do %>
+  <%= javascript_include_tag asset_path('topics/view', type: :javascript) %>
+<% end %>

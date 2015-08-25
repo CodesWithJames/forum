@@ -1,0 +1,304 @@
+pt-br:
+  activerecord:
+    errors:
+      messages:
+        existence: não existe
+    models:
+      user:
+        one: "Usuário"
+        other: "Usuários"
+      topic:
+        one: "Topico"
+        other: "Topicos"
+      comment:
+        one: "Comentário"
+        other: "Comentários"
+
+
+    attributes:
+      user:
+        name: "nome"
+        password: "senha"
+        password_hash: "senha"
+        password_recover: "recuração de senha"
+        email: "email"
+      topic:
+        subject: "título"
+        body: "corpo"
+        user: "usuário"
+      comment:
+        body: "corpo"
+        topic: "topico"
+        user: "usuário"        
+
+
+  date:
+    abbr_day_names:
+    - Dom
+    - Seg
+    - Ter
+    - Qua
+    - Qui
+    - Sex
+    - Sáb
+    abbr_month_names:
+    -
+    - Jan
+    - Fev
+    - Mar
+    - Abr
+    - Mai
+    - Jun
+    - Jul
+    - Ago
+    - Set
+    - Out
+    - Nov
+    - Dez
+    day_names:
+    - Domingo
+    - Segunda
+    - Terça
+    - Quarta
+    - Quinta
+    - Sexta
+    - Sábado
+    formats:
+      default: ! '%d/%m/%Y'
+      long: ! '%d de %B de %Y'
+      short: ! '%d de %B'
+    month_names:
+    -
+    - Janeiro
+    - Fevereiro
+    - Março
+    - Abril
+    - Maio
+    - Junho
+    - Julho
+    - Agosto
+    - Setembro
+    - Outubro
+    - Novembro
+    - Dezembro
+    order:
+    - :day
+    - :month
+    - :year
+
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: aproximadamente 1 hora
+        other: aproximadamente %{count} horas
+      about_x_months:
+        one: aproximadamente 1 mês
+        other: aproximadamente %{count} meses
+      about_x_years:
+        one: aproximadamente 1 ano
+        other: aproximadamente %{count} anos
+      almost_x_years:
+        one: quase 1 ano
+        other: quase %{count} anos
+      half_a_minute: meio minuto
+      less_than_x_minutes:
+        one: menos de um minuto
+        other: menos de %{count} minutos
+      less_than_x_seconds:
+        one: menos de 1 segundo
+        other: menos de %{count} segundos
+      over_x_years:
+        one: mais de 1 ano
+        other: mais de %{count} anos
+      x_days:
+        one: 1 dia
+        other: '%{count} dias'
+      x_minutes:
+        one: 1 minuto
+        other: '%{count} minutos'
+      x_months:
+        one: 1 mês
+        other: '%{count} meses'
+      x_seconds:
+        one: 1 segundo
+        other: '%{count} segundos'
+    prompts:
+      day: Dia
+      hour: Hora
+      minute: Minuto
+      month: Mês
+      second: Segundo
+      year: Ano
+
+  time:
+    formats:
+      member_since: "Membro desde %B de %Y"
+      short: "%d %b %H:%M"
+      long: "%B %d, %Y %H:%M"
+      log_time: "%d %B %H:%M"  
+      comment: "%d de %B de %Y às %T"
+      creation: "%d/%m/%Y %H:%Mh"
+      default: "%d.%m.%Y"
+    am: "am"
+    pm: "pm"
+
+  number:
+    format:
+      # Sets the separator between the units, for more precision (e.g. 1.0 / 2.0 == 0.5)
+      separator: ","
+      # Delimits thousands (e.g. 1,000,000 is a million) (always in groups of three)
+      delimiter: ""
+      # Number of decimals, behind the separator (the number 1 with a precision of 2 gives: 1.00)
+      precision: 2
+      # If set to true, precision will mean the number of significant digits instead
+      # of the number of decimal digits (1234 with precision 2 becomes 1200, 1.23543 becomes 1.2)
+      significant: false
+      # If set, the zeros after the decimal separator will always be stripped (eg.: 1.200 will be 1.2)
+      strip_insignificant_zeros: false
+
+    # Used in NumberHelper.number_to_currency()
+    currency:
+      format:
+        # Where is the currency sign? %u is the currency unit, %n the number (default: $5.00)
+        format: "%u%n"
+        unit: "R$ "
+        # These five are to override number.format and are optional
+        separator: ","
+        delimiter: "."
+        precision: 2
+        significant: false
+        strip_insignificant_zeros: false
+
+    # Used in NumberHelper.number_to_percentage()
+    percentage:
+      format:
+        # These five are to override number.format and are optional
+        separator: ","
+        delimiter: "."
+        precision: 2
+        significant: false
+        strip_insignificant_zeros: false
+        format: "n%"
+        format2: "%n%"
+
+
+    # Used in NumberHelper.number_to_rounded()
+    precision:
+      format:
+        # These five are to override number.format and are optional
+        separator: ","
+        delimiter: "."
+        # precision:
+        significant: false
+        strip_insignificant_zeros: false
+
+    # Used in NumberHelper.number_to_human_size() and NumberHelper.number_to_human()
+    human:
+      format:
+        # These five are to override number.format and are optional
+        # separator:
+        delimiter: ""
+        precision: 3
+        significant: true
+        strip_insignificant_zeros: true
+      # Used in number_to_human_size()
+      storage_units:
+        # Storage units output formatting.
+        # %u is the storage unit, %n is the number (default: 2 MB)
+        format: "%n %u"
+        units:
+          byte:
+            one:   "Byte"
+            other: "Bytes"
+          kb: "KB"
+          mb: "MB"
+          gb: "GB"
+          tb: "TB"
+      # Used in NumberHelper.number_to_human()
+      decimal_units:
+        format: "%n %u"
+        # Decimal units output formatting
+        # By default we will only quantify some of the exponents
+        # but the commented ones might be defined or overridden
+        # by the user.
+        units:
+          # femto: Quadrillionth
+          # pico: Trillionth
+          # nano: Billionth
+          # micro: Millionth
+          # mili: Thousandth
+          # centi: Hundredth
+          # deci: Tenth
+          unit: ""
+          # ten:
+          #   one: Ten
+          #   other: Tens
+          hundred: cem
+          thousand: mil
+          million: milhão
+          billion: bilhão
+          trillion: trilhão
+          quadrillion: quadrilhão
+
+  errors:
+    format: "%{message}"
+    messages:
+      not_found: "não encontrado"
+      password_facebook: "Senha ou Facebook Id deve ser preenchido"
+      image_blank: deve ser selecionada
+      have_one: deve ter pelo menos um
+      accepted: deve ser aceito
+      select: deve ser selecionado
+      select_plural: devem ser selecionados
+      blank: não pode ficar em branco
+      present: deve ficar em branco
+      existence: não existe
+      confirmation: não é igual a %{attribute}
+      empty: não pode ficar vazio
+      equal_to: deve ser igual a %{count}
+      even: deve ser par
+      exclusion: não está disponível
+      greater_than: deve ser maior que %{count}
+      greater_than_or_equal_to: deve ser maior ou igual a %{count}
+      inclusion: não está incluído na lista
+      invalid: não é válido
+      less_than: deve ser menor que %{count}
+      less_than_or_equal_to: deve ser menor ou igual a %{count}
+      not_a_number: não é um número
+      not_an_integer: não é um número inteiro
+      odd: deve ser ímpar
+      record_invalid: 'A validação falhou: %{errors}'
+      restrict_dependent_destroy:
+        one: "Não é possível excluir o registro pois existe um %{record} dependente"
+        many: "Não é possível excluir o registro pois existem %{record} dependentes"
+      taken: já está em uso
+      too_long: "é muito longo (máximo: %{count} caracteres)"
+      too_short: "é muito curto (mínimo: %{count} caracteres)"
+      wrong_length: "não possui o tamanho esperado (%{count} caracteres)"
+    template:
+      body: "Por favor, verifique o(s) seguinte(s) campo(s)"
+      header:
+        one: "Não foi possível gravar %{model}: 1 erro"
+        other: "Não foi possível gravar %{model}: %{count} erros."
+    user:
+      owner: "Precisa ter um dono."
+      blank_password: "senha deve ser preenchida"
+
+  exceptions:
+    auth:
+      token: "inválido"
+      blank: "deve ser preenchido"
+      invalid: "inválido"
+      inactive: "Usuário não está ativo."
+      unauth: "Este usuário não tem permissão para acessar o sistema."
+    attachment:
+      blank: "Arquivo nào pode ficar em branco"
+      size: "Tamanho do arquivo não pode ser maior que 5 megabytes"
+      type: "Tipo de arquivo não é válido, tipos válidos são jpg, png, gif, word, excel"
+    users:
+      blank_password: "Senha deve ser preenchida"
+    id_not_found: "não foi encontrado com o id ="
+  will_paginate:
+    page_gap: "..."
+    previous_label: "<"
+    next_label: ">"

@@ -1,0 +1,20 @@
+<section id="topics"> 
+  <h3>Tópicos do Fórum</h3>
+  <p class="text-right">
+    <a class="btn btn-primary" href="/topic/new">Criar Tópico</a>
+  </p>
+  <div class="list-group">
+    <% @topics.each do |topic| %>
+      <a href="/topic/<%= topic.id %>" class="list-group-item">
+        <h4 class="list-group-item-heading">
+          <%= topic.subject %>
+          <span class="badge"><%= topic.comments.size%> comentários</span>
+        </h4>
+        <p class="list-group-item-text">criado em <%= l(topic.created_at, format: :comment) %></p>
+      </a>
+    <% end %>
+  </ul>
+  <div>
+    <%= will_paginate @topics %>
+  </div>
+</section>

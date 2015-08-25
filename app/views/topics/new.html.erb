@@ -1,0 +1,32 @@
+<section id="new_topic">
+  <% if @error %>
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="alert alert-warning alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <i class="fa fa-exclamation-triangle"></i>  <span><%= @error[:error][:full_message] %></span>
+      </div>
+    </div>
+  </div>
+  <% end %>
+
+  <div class="col-sm-6">  
+    <%= form_tag "/topic", method: :post do %>
+    <form action="/topic" method="post">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Título</label>
+        <input type="text" class="form-control" id="topic_subject" name="topic[subject]" placeholder="Titulo do Tópico">
+      </div>
+
+      <div class="form-group">
+        <label for="exampleInputEmail1">Texto</label>
+        <textarea class="form-control" id="topic_body" name="topic[body]" rows="5" placeholder="Texto do Tópico"></textarea>
+      </div>
+
+      <div class="text-center">
+        <input type="hidden" name="topic[user_id]" value="<%= current_user.id.to_s%>">
+        <button class="btn btn-primary">Registrar Tópico</button>
+      </div>
+    <% end %>
+  </div>
+</section>
